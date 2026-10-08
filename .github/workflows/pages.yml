@@ -31,16 +31,13 @@ jobs:
         with:
           bundler-cache: true # reads .ruby-version, runs bundle install, caches gems
 
-      - id: pages
-        uses: actions/configure-pages@v5
-
       - name: Fetch latest client release
         run: bin/fetch-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Build site
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll build # baseurl comes from _config.yml
         env:
           JEKYLL_ENV: production
 
