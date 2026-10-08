@@ -1,0 +1,16 @@
+- title: Chat with your codebase
+  text: Streamed answers about your repository. Each turn lists the files it read, and any file it mentions opens in your editor in one click.
+- title: Diff before every edit
+  text: Changes come back as a preview. Apply or reject per file or per hunk. File hashes are checked, so it never overwrites work you changed after the preview.
+- title: Rewind a whole turn
+  text: Every turn leaves a checkpoint of the files it changed and your place in the conversation. A wrong direction is one Rewind away.
+- title: You approve the terminal
+  text: Read-only commands like git status run on their own. Anything that writes, installs or reaches the network waits for you, with the full command shown.
+- title: Project rules
+  text: AGENTS.md files are read as scoped repository instructions, including nested ones for subdirectories.
+- title: MCP servers
+  text: Connect local (stdio) or remote (HTTP) Model Context Protocol servers, each with its own approval settings.
+- title: Any OpenAI-compatible model
+  text: Bring your own provider, from OpenAI to a local model running in Ollama.
+- title: Search and export sessions
+  text: Search every session in a folder and export a conversation as Markdown, with secrets redacted and counted at the top.

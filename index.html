@@ -1,0 +1,101 @@
+---
+layout: default
+---
+<section class="hero wrap">
+  <p class="badge"><span class="pulse" aria-hidden="true"></span> Developer preview · macOS 14+ · Apple Silicon</p>
+  <h1>{{ site.tagline }}</h1>
+  <p class="lead">Chat with your repository, review every edit as a diff, and approve every command that matters. Bring any OpenAI-compatible model, including local ones.</p>
+
+  <div class="install" data-tabs>
+    <div class="tabs" role="tablist" aria-label="Get Damaian">
+      <button role="tab" aria-selected="true" aria-controls="tab-dmg" id="t-dmg">download</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-source" id="t-source" tabindex="-1">source</button>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="tab-dmg" aria-labelledby="t-dmg">
+      <div class="install-row">
+        <code>{{ site.data.release.dmg_name }}</code>
+        <a class="btn btn-primary" href="{{ site.data.release.dmg_url }}">Download v{{ site.data.release.version }}</a>
+      </div>
+      <p class="hint">Signed and notarized. Drag Damaian.app into Applications and launch it.</p>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="tab-source" aria-labelledby="t-source" hidden>
+      <div class="install-row">
+        <code>git clone https://github.com/{{ site.github_repo }}.git</code>
+        <button class="btn btn-sm copy" data-copy="git clone https://github.com/{{ site.github_repo }}.git">Copy</button>
+      </div>
+      <p class="hint">Build steps and the CLI are covered in the <a href="{{ site.docs.development }}">development guide</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap showcase">
+  {% include app-mock.html %}
+</section>
+
+<section class="wrap section">
+  <h2>What is Damaian?</h2>
+  <p class="section-lead">A desktop assistant that works on a Git repository on your machine. It reads your code to answer questions, proposes changes you can inspect, and never acts behind your back.</p>
+  <ul class="features">
+    {% for f in site.data.features %}
+    <li>
+      <span class="tick" aria-hidden="true">[✓]</span>
+      <div><strong>{{ f.title }}</strong><p>{{ f.text }}</p></div>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="link-arrow" href="{{ site.docs.user_guide }}">Read the user guide →</a>
+</section>
+
+<section class="wrap section">
+  <h2>Up and running in three steps</h2>
+  <ol class="steps">
+    <li><span class="step-n">01</span><strong>Open a project</strong><p>Select <kbd>+</kbd> beside Projects and pick a local Git repository.</p></li>
+    <li><span class="step-n">02</span><strong>Add your model</strong><p>Open Settings (<kbd>⌘</kbd> <kbd>,</kbd>), add your provider and store the API key in the Keychain.</p></li>
+    <li><span class="step-n">03</span><strong>Ask or change</strong><p>Ask about the code, or request a change like “add a test for the config parser” and review the diff.</p></li>
+  </ol>
+</section>
+
+<section class="wrap section control">
+  <div class="control-text">
+    <h2>Built for control</h2>
+    <p>Damaian runs locally against your own checkout. Your model key lives in the macOS Keychain, and credentials it detects are redacted from context, command output, diffs and exports.</p>
+    <p>Consent screens show the full command or change. Nothing is pre-selected toward approval, and anything that outlives the turn, like “always allow”, sits behind an extra click.</p>
+    <a class="link-arrow" href="{{ site.docs.security }}">Read the security policy →</a>
+  </div>
+  <dl class="facts">
+    <div><dt>Keychain</dt><dd>API key storage</dd></div>
+    <div><dt>Per hunk</dt><dd>Apply or reject</dd></div>
+    <div><dt>1 click</dt><dd>Rewind a turn</dd></div>
+    <div><dt>No Node</dt><dd>runtime needed to run it</dd></div>
+  </dl>
+</section>
+
+<section class="wrap section">
+  <h2>Requirements</h2>
+  <ul class="reqs">
+    <li>macOS 14 (Sonoma) or newer, Apple Silicon</li>
+    <li>Git installed and on your <code>PATH</code></li>
+    <li>An API key for an OpenAI-compatible provider, or a local one such as Ollama</li>
+  </ul>
+</section>
+
+<section class="wrap section">
+  <h2>FAQ</h2>
+  <div class="faq">
+    {% for item in site.data.faq %}
+    <details>
+      <summary>{{ item.q }}</summary>
+      <p>{{ item.a }}</p>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section cta">
+  <h2>Try the developer preview</h2>
+  <p>It updates itself from GitHub Releases, so you only install it once.</p>
+  <div class="cta-actions">
+    <a class="btn btn-primary" href="{{ site.download_url }}">Download for macOS</a>
+    <a class="btn" href="{{ site.github_url }}">View on GitHub</a>
+  </div>
+</section>

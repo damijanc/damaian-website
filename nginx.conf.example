@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    server_name damaian.si;
+
+    root /var/www/damaian/_site;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ $uri.html =404;
+    }
+
+    location /assets/ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    gzip on;
+    gzip_types text/css application/javascript image/svg+xml;
+}

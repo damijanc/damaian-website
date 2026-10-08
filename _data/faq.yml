@@ -1,0 +1,14 @@
+- q: What is Damaian?
+  a: A desktop AI coding assistant for macOS. You point it at a local Git repository, ask questions, and request changes. Every change is shown as a diff before it touches a file.
+- q: Which models can I use?
+  a: Any provider with an OpenAI-compatible API. That includes OpenAI itself and local providers such as Ollama. You add the provider in Settings.
+- q: Where is my API key stored?
+  a: In the macOS Keychain. Detected credentials are also redacted from model context, command output and diffs.
+- q: Can it run commands on my machine?
+  a: Only read-only commands run without asking. Anything that writes, installs or uses the network waits for your approval in the conversation. You can approve once or allow a command for the project.
+- q: Does it replace Git?
+  a: No. Checkpoints let you rewind a turn during a session, but they are session recovery, not version control. Keep committing as usual.
+- q: What do I need to run it?
+  a: macOS 14 (Sonoma) or newer on Apple Silicon, Git on your PATH, and an API key for an OpenAI-compatible provider. No Node.js runtime is needed.
+- q: Is it stable?
+  a: It's a developer preview. Releases are signed, notarized and update themselves, but features, configuration and stored data may change between releases.

@@ -1,0 +1,36 @@
+title: Damaian
+tagline: The local-first AI coding assistant for macOS
+description: >-
+  Damaian works on a Git repository on your machine. It answers questions about
+  your code, previews every edit as a diff, and keeps file access, commands and
+  API keys under your control.
+
+# Set these for your host. Leave baseurl empty when serving from the domain root.
+url: "https://damaian.si"
+baseurl: ""
+
+github_repo: damijanc/damaian
+github_url: https://github.com/damijanc/damaian
+download_url: https://github.com/damijanc/damaian/releases/latest
+releases_url: https://github.com/damijanc/damaian/releases
+
+docs:
+  user_guide: https://github.com/damijanc/damaian/blob/main/docs/USER_GUIDE.md
+  install: https://github.com/damijanc/damaian/blob/main/docs/MACOS_INSTALLATION.md
+  troubleshooting: https://github.com/damijanc/damaian/blob/main/docs/TROUBLESHOOTING.md
+  security: https://github.com/damijanc/damaian/blob/main/SECURITY.md
+  development: https://github.com/damijanc/damaian/blob/main/docs/DEVELOPMENT.md
+  specs: https://github.com/damijanc/damaian/blob/main/docs/specs/README.md
+  license: https://github.com/damijanc/damaian/blob/main/LICENSE
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - nginx.conf.example
+  - bin

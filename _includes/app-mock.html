@@ -1,0 +1,70 @@
+<figure class="app" aria-label="Illustration of the Damaian app reviewing a diff and a command">
+  <div class="app-titlebar" aria-hidden="true">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span class="app-title">Damaian</span>
+  </div>
+  <div class="app-body">
+    <aside class="app-sidebar" aria-hidden="true">
+      <div class="app-ws"><span class="logo-mark">D</span><div><strong>Damaian</strong><small>acme-api</small></div></div>
+      <p class="eyebrow">Projects</p>
+      <p class="app-proj">acme-api</p>
+      <ul>
+        <li class="active">Add a test for the config parser</li>
+        <li>Why does login retry twice?</li>
+        <li>Explain the cache layer</li>
+      </ul>
+      <p class="app-proj">web-frontend</p>
+      <ul>
+        <li>Rename the theme tokens</li>
+      </ul>
+    </aside>
+
+    <div class="app-main">
+      <div class="app-head">
+        <small class="eyebrow">acme-api</small>
+        <strong>Add a test for the config parser</strong>
+      </div>
+
+      <div class="app-log">
+        <div class="msg-user">Add a test for the config parser that covers an empty file.</div>
+
+        <div class="card">
+          <p>I'll add a test next to the existing parser tests. Here's the change:</p>
+          <div class="diff">
+            <div class="diff-file"><span>tests/config_parser.rs</span><span class="diff-stat"><b class="add">+5</b> <b class="del">−1</b></span></div>
+<pre><code><span class="ln"> </span> use acme_api::config::parse;
+<span class="ln del">-</span> // TODO: cover empty input
+<span class="ln add">+</span> #[test]
+<span class="ln add">+</span> fn empty_file_yields_defaults() {
+<span class="ln add">+</span>     let cfg = parse("").unwrap();
+<span class="ln add">+</span>     assert_eq!(cfg, Config::default());
+<span class="ln add">+</span> }</code></pre>
+            <div class="diff-actions">
+              <span class="disclosure">› Read 4 files</span>
+              <span class="spacer"></span>
+              <span class="btn btn-quiet btn-sm">Reject</span>
+              <span class="btn btn-primary btn-sm">Apply</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card approval">
+          <p class="eyebrow warn">Command needs approval</p>
+          <code class="cmd">cargo test --test config_parser</code>
+          <div class="diff-actions">
+            <span class="disclosure">› Why</span>
+            <span class="spacer"></span>
+            <span class="btn btn-icon btn-sm">⋯</span>
+            <span class="btn btn-quiet btn-sm">Reject</span>
+            <span class="btn btn-sm">Run once</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-composer">
+        <div class="field">Ask a question or request a file change</div>
+        <div class="composer-row"><span class="btn-icon">+</span><span class="spacer"></span><span class="trigger">qwen2.5-coder ⌄</span><span class="send">↑</span></div>
+      </div>
+    </div>
+  </div>
+</figure>

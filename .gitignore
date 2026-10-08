@@ -1,0 +1,18 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler (only used if gems are installed into the project)
+.bundle/
+vendor/
+
+# Personal Claude Code settings (launch.json stays shared)
+.claude/settings.local.json
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

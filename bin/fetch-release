@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# Writes _data/release.json from the latest GitHub Release of the client repo,
+# so the site shows the current version and links straight to its DMG.
+# Uses GITHUB_TOKEN when set (CI) to avoid the anonymous API rate limit.
+# Exits non-zero on any failure so CI never publishes a page without a version.
+
+require "json"
+require "net/http"
+require "uri"
+require "yaml"
+
+root = File.expand_path("..", __dir__)
+repo = YAML.safe_load_file(File.join(root, "_config.yml")).fetch("github_repo")
+uri = URI("https://api.github.com/repos/#{repo}/releases/latest")
+
+request = Net::HTTP::Get.new(uri)
+request["Accept"] = "application/vnd.github+json"
+request["Authorization"] = "Bearer #{ENV["GITHUB_TOKEN"]}" if ENV["GITHUB_TOKEN"]
+
+response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(request) }
+abort "GitHub API #{response.code} for #{uri}" unless response.is_a?(Net::HTTPSuccess)
+
+release = JSON.parse(response.body)
+dmg = release.fetch("assets").find { |asset| asset["name"].end_with?(".dmg") }
+abort "Release #{release["tag_name"]} has no .dmg asset" unless dmg
+
+data = {
+  "version" => release.fetch("tag_name").delete_prefix("v"),
+  "tag" => release.fetch("tag_name"),
+  "published_at" => release.fetch("published_at"),
+  "url" => release.fetch("html_url"),
+  "dmg_name" => dmg.fetch("name"),
+  "dmg_url" => dmg.fetch("browser_download_url"),
+  "dmg_size" => dmg.fetch("size"),
+}
+
+File.write(File.join(root, "_data", "release.json"), JSON.pretty_generate(data) + "\n")
+puts "#{data["tag"]}: #{data["dmg_name"]}"
