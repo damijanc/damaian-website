@@ -69,10 +69,7 @@ kbd {
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
 .logo-text { font: 700 19px/1 var(--mono); letter-spacing: -.02em; }
-.logo-mark {
-  display: inline-grid; place-items: center; width: 28px; height: 28px; flex: none;
-  background: var(--ink); color: #fff; border-radius: 7px; font: 700 14px/1 var(--sans);
-}
+.logo-mark { display: block; width: 28px; height: 28px; flex: none; }
 .nav { display: flex; align-items: center; gap: 22px; font: 14px/1 var(--mono); }
 .nav a:not(.btn) { color: var(--ink); text-decoration: none; }
 .nav a:not(.btn):hover { color: var(--accent); }

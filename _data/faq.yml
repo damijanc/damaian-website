@@ -1,5 +1,7 @@
 - q: What is Damaian?
   a: A desktop AI coding assistant for macOS. You point it at a local Git repository, ask questions, and request changes. Every change is shown as a diff before it touches a file.
+- q: Why Damaian and not another coding assistant?
+  a: There are good alternatives, and Damaian is built on one idea. The model proposes, the app decides. Damaian reads your files, redacts secrets, turns every edit into a diff you apply per hunk, and only runs commands that your session's mode and the repository's profile allow. A repository can never loosen your own rules. Because that control lives in the app and not in the model, you can switch to any OpenAI-compatible model, including a local one in Ollama, and keep the same rules.
 - q: Which models can I use?
   a: Any provider with an OpenAI-compatible API. That includes OpenAI itself and local providers such as Ollama. You add the provider in Settings.
 - q: Where is my API key stored?
