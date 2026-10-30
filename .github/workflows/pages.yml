@@ -29,7 +29,10 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true # reads .ruby-version, runs bundle install, caches gems
+          # Newer runner images only ship the latest patch of each series, so
+          # track 3.4.x here rather than the exact patch in .ruby-version.
+          ruby-version: "3.4"
+          bundler-cache: true # runs bundle install, caches gems
 
       - name: Fetch latest client release
         run: bin/fetch-release
